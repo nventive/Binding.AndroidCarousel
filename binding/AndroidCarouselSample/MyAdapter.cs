@@ -62,11 +62,14 @@ namespace App._3dCarousel
 			{
 				return new TextView(Application.Context);
 			}
-		
+
 			return _items[position];
-			
+
 		}
 
-		public override int Count => _toArray.Length;
+		public override int Count
+		{
+			get { return _toArray.Length; }
+		}
 	}
 }

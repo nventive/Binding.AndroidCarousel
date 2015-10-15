@@ -3,7 +3,7 @@
 	<metadata>
 		<id>AndroidCarousel</id>
 		<version>1.0.0.0</version>
-		<title>Android 3D Carousel</title>
+		<title>Android 3D Carousel Xamarin Binding</title>
 		<authors>nventive</authors>
 		<owners />
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,9 +14,8 @@
 	</metadata>
 	<files>
 		<!-- Android -->
-		<file src="..\binding\Bin\Release\AndroidCarousel.dll" target="lib\MonoAndroid" />
-		<file src="..\binding\Bin\Release\AndroidCarousel.pdb" target="lib\MonoAndroid" />
-
-		<file src="..\binding\Jars\AndroidCarousel-1.0.0.0.aar" target="content" />
+		<file src="..\AndroidCarouselBinding\Bin\Release\AndroidCarousel.dll" target="lib\MonoAndroid" />
+		<file src="..\AndroidCarouselBinding\Bin\Release\AndroidCarousel.pdb" target="lib\MonoAndroid" />
+		<file src="..\AndroidCarouselBinding\Jars\AndroidCarousel-1.0.0.0.aar" target="content" />
 	</files>
 </package>
