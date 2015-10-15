@@ -178,7 +178,9 @@ public abstract class CarouselSpinner
   public void setSelection(int position, boolean animate)
   {
     // Animate only if requested position is already on screen somewhere
-    //boolean shouldAnimate = animate && firstPosition <= position && position <= firstPosition + getChildCount() - 1;
+    //NV(?) boolean shouldAnimate = animate && firstPosition <= position && position <= firstPosition + getChildCount() - 1;
+    //NV(?) setSelectionInt(position, shouldAnimate);
+
     setSelectionInt(position, animate);
   }
 
@@ -291,7 +293,7 @@ public abstract class CarouselSpinner
 
     if (fitting.size() != 0)
     {
-      return fitting.get(0).getIndex();
+      return fitting.get(fitting.size()-1).getIndex(); //NV Fix Z ordering issue when tapping an image
     }
     else
     {

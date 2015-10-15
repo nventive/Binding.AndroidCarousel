@@ -300,7 +300,7 @@ public final class Carousel
 
     child.setItemX(x);
     child.setItemZ(z);
-    child.setItemY(y);
+    child.setItemY(y+diameter/6); //NV +diameter/6 added
   }
 
   /**
@@ -812,6 +812,9 @@ public final class Carousel
     }
 
     // Fling the gallery!
+
+
+
     final int currentSelection = getSelectedItemPosition();
     final int nextSelection;
 
@@ -841,6 +844,7 @@ public final class Carousel
       angle = -angle;
     }
 
+    //NV (? enable spin ) flingRunnable.startUsingVelocity((int) velocityX);
     flingRunnable.startUsingDistance(angle);
 
     return true;
@@ -895,6 +899,8 @@ public final class Carousel
         suppressSelectionChanged = false;
       }
     }
+
+    //NV(?) trackMotionScroll(/* -1 * */ (int) distanceX);
 
     isFirstScroll = false;
     return true;

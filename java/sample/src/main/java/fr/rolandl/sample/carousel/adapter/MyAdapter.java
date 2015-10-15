@@ -15,11 +15,11 @@ import java.util.List;
  * @since 2014.12.20
  */
 public final class MyAdapter
-    extends CarouselAdapter<Photo>
+        extends CarouselAdapter<Photo>
 {
 
   public static final class PhotoItem
-      extends CarouselItem<Photo>
+          extends CarouselItem<Photo>
   {
 
     private ImageView image;
@@ -62,3 +62,4 @@ public final class MyAdapter
   }
 
 }
+

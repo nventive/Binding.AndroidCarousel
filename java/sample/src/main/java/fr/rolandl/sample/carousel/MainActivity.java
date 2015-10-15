@@ -3,6 +3,7 @@ package fr.rolandl.sample.carousel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
@@ -27,7 +28,7 @@ public final class MainActivity
     implements OnItemClickListener, OnItemLongClickListener
 {
 
-  private CarouselAdapter adapter;
+  private fr.rolandl.sample.carousel.adapter.MyAdapter2 adapter;
 
   private Carousel carousel;
 
@@ -42,14 +43,24 @@ public final class MainActivity
 
     carousel = (Carousel) findViewById(R.id.carousel);
 
-    photos.add(new Photo("Photo1", "fotolia_40649376"));
-    photos.add(new Photo("Photo2", "fotolia_40973414"));
-    photos.add(new Photo("Photo3", "fotolia_48275073"));
-    photos.add(new Photo("Photo4", "fotolia_50806609"));
-    photos.add(new Photo("Photo5", "fotolia_61643329"));
-
-    adapter = new MyAdapter(this, photos);
+    photos.add(new Photo(" 1- HotelT2", "cat"));
+    photos.add(new Photo(" 2- Pan", "hippo"));
+    photos.add(new Photo(" 3- Goosebumps", "monkey"));
+    photos.add(new Photo(" 4- BridgeOfSpies", "panda"));
+    photos.add(new Photo(" 5- Martian", "mouse"));
+    photos.add(new Photo(" 6- Sicario", "rabbit"));
+    photos.add(new Photo(" 7- HotelT2", "cat"));
+    photos.add(new Photo(" 8- Pan", "hippo"));
+    photos.add(new Photo(" 9- Goosebumps", "monkey"));
+    photos.add(new Photo("10- BridgeOfSpies", "panda"));
+    photos.add(new Photo("11- Martian", "mouse"));
+    photos.add(new Photo("12- Sicario", "rabbit"));
+    adapter = new fr.rolandl.sample.carousel.adapter.MyAdapter2(this, photos);
+    carousel.setGravity(Gravity.TOP);
     carousel.setAdapter(adapter);
+
+    carousel.setAnimationDuration(200);
+//carousel.setCallbackDuringFling(true);
     adapter.notifyDataSetChanged();
 
     carousel.setOnItemClickListener(new OnItemClickListener()
