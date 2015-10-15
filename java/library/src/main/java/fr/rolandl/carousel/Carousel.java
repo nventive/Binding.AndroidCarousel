@@ -6,6 +6,7 @@ import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -615,7 +616,7 @@ public final class Carousel
       angle = -angle;
     }
 
-    flingRunnable.startUsingDistance(angle);
+      flingRunnable.startUsingDistance(angle);
   }
 
   /**
@@ -844,8 +845,9 @@ public final class Carousel
       angle = -angle;
     }
 
-    //NV (? enable spin ) flingRunnable.startUsingVelocity((int) velocityX);
-    flingRunnable.startUsingDistance(angle);
+
+    //NV Remove to prevent rotating items upon reaching the final state
+    // flingRunnable.startUsingDistance(angle);
 
     return true;
   }
@@ -900,7 +902,8 @@ public final class Carousel
       }
     }
 
-    //NV(?) trackMotionScroll(/* -1 * */ (int) distanceX);
+    //NV Allow carousel to follow finger as we scroll
+    trackMotionScroll(/* -1 * */ (int) (distanceX * 0.1));
 
     isFirstScroll = false;
     return true;
@@ -1262,7 +1265,7 @@ public final class Carousel
     final int count = getAdapter().getCount();
     final float angleUnit = 360.0f / count;
     final float angleOffset = selectedPosition * angleUnit;
-
+ 
     for (int i = 0; i < getAdapter().getCount(); i++)
     {
       float angle = angleUnit * i - angleOffset;

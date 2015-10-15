@@ -2,6 +2,7 @@
 package fr.rolandl.sample.carousel.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -30,9 +31,18 @@ public final class MyAdapter2
       final CarouselItem<Photo> item = getCarouselItem(context);
       item.setIndex(i);
       item.update(currentItem);
-      ImageView txt = new ImageView(context);
-      txt.setImageResource(context.getResources().getIdentifier(currentItem.image, "drawable", context.getPackageName()));
+
+      ImageView img = new ImageView(context);
+      img.setImageResource(context.getResources().getIdentifier(currentItem.image, "drawable", context.getPackageName()));
+
+      TextView txt = new TextView(context);
+      txt.setTextColor(Color.WHITE);
+      txt.setHighlightColor(Color.BLACK);
+      txt.setText("Item " + i);
+
+      item.addView(img);
       item.addView(txt);
+
       this.items.add(item);
     }
   }
