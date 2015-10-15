@@ -27,7 +27,7 @@ import java.util.Comparator;
  * @since 2014.12.19
  */
 //Inspired by http://www.codeproject.com/Articles/146145/Android-D-Carousel
-public final class Carousel
+public class Carousel
     extends CarouselSpinner
     implements GestureDetector.OnGestureListener
 {
