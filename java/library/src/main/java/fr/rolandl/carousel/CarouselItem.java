@@ -43,6 +43,16 @@ public abstract class CarouselItem<T>
     extractView(view);
   }
 
+  public CarouselItem(Context context, View view)
+  {
+    super(context);
+
+    final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    this.setLayoutParams(params);
+    this.addView(view);
+    extractView(view);
+  }
+
   public void setIndex(int index)
   {
     this.index = index;
