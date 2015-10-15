@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>AndroidCarousel</id>
+		<version>1.0.0.0</version>
+		<title>Android 3D Carousel</title>
+		<authors>nventive</authors>
+		<owners />
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A Xamarin.Android binding library for Android Carousel (https://github.com/ludovicroland/carousel-android)</description>
+		<references>
+			<reference file="AndroidCarousel.dll" />
+		</references>
+	</metadata>
+	<files>
+		<!-- Android -->
+		<file src="..\binding\Bin\Release\AndroidCarousel.dll" target="lib\MonoAndroid" />
+		<file src="..\binding\Bin\Release\AndroidCarousel.pdb" target="lib\MonoAndroid" />
+
+		<file src="..\binding\Jars\AndroidCarousel-1.0.0.0.aar" target="content" />
+	</files>
+</package>
