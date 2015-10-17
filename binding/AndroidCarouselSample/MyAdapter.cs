@@ -24,7 +24,8 @@ namespace App._3dCarousel
 			for (int i = 0; i < toArray.Length; i++)
 			{
 				var res = toArray[i];
-				var item = new MyItem(_ctx, new LinearLayout(_ctx));
+				var item = new MyItem(_ctx);
+				item.InitView(new LinearLayout(_ctx));
 				var img = new ImageView(_ctx);
 				img.SetImageResource(res);
 				item.AddView(img);

@@ -30,6 +30,7 @@ public final class MyAdapter2
       Photo currentItem = items.get(i);
       final CarouselItem<Photo> item = getCarouselItem(context);
       item.setIndex(i);
+      item.initView(new android.widget.LinearLayout(context));
       item.update(currentItem);
 
       ImageView img = new ImageView(context);
@@ -78,7 +79,7 @@ public final class MyAdapter2
 
   public CarouselItem<Photo> getCarouselItem(Context context)
   {
-    CarouselItem<Photo>  c = new CarouselItem<Photo>(context, new android.widget.LinearLayout(context)) {
+    CarouselItem<Photo>  c = new CarouselItem<Photo>(context) {
       Photo photo;
       @Override
       public void extractView(View view) {

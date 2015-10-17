@@ -61,7 +61,7 @@ public final class MainActivity
 
     carousel.setAnimationDuration(200);
 //carousel.setCallbackDuringFling(true);
-    adapter.notifyDataSetChanged();
+    //adapter.notifyDataSetChanged();
 
     carousel.setOnItemClickListener(new OnItemClickListener()
     {

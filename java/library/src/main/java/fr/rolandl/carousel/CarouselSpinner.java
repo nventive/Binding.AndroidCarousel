@@ -261,30 +261,34 @@ public abstract class CarouselSpinner
       for (int i = 0; i < adapter.getCount(); i++)
       {
         final CarouselItem<?> item = (CarouselItem<?>) getChildAt(i);
+
         final Matrix mm = item.getCIMatrix();
-        final float[] pts = new float[3];
+        if(mm != null) { // Happen if carousel item is not drawn
+          final float[] pts = new float[3];
 
-        pts[0] = item.getLeft();
-        pts[1] = item.getTop();
-        pts[2] = 0;
 
-        mm.mapPoints(pts);
+          pts[0] = item.getLeft();
+          pts[1] = item.getTop();
+          pts[2] = 0;
 
-        final int mappedLeft = (int) pts[0];
-        final int mappedTop = (int) pts[1];
+          mm.mapPoints(pts);
 
-        pts[0] = item.getRight();
-        pts[1] = item.getBottom();
-        pts[2] = 0;
+          final int mappedLeft = (int) pts[0];
+          final int mappedTop = (int) pts[1];
 
-        mm.mapPoints(pts);
+          pts[0] = item.getRight();
+          pts[1] = item.getBottom();
+          pts[2] = 0;
 
-        final int mappedRight = (int) pts[0];
-        final int mappedBottom = (int) pts[1];
+          mm.mapPoints(pts);
 
-        if (mappedLeft < x && mappedRight > x & mappedTop < y && mappedBottom > y)
-        {
-          fitting.add(item);
+          final int mappedRight = (int) pts[0];
+          final int mappedBottom = (int) pts[1];
+
+          if (mappedLeft < x && mappedRight > x & mappedTop < y && mappedBottom > y) 
+		  {
+            fitting.add(item);
+          }
         }
       }
     }

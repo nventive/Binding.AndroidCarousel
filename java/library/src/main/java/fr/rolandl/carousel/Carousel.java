@@ -293,15 +293,17 @@ public class Carousel
 
   private void Calculate3DPosition(CarouselItem<?> child, int diameter, float angleOffset)
   {
+    // Convert degrees to radians
     angleOffset = angleOffset * (float) (Math.PI / 180.0f);
 
     final float x = -(diameter / 2 * android.util.FloatMath.sin(angleOffset)) + diameter / 2 - child.getWidth() / 2;
     final float z = diameter / 2 * (1.0f - android.util.FloatMath.cos(angleOffset));
     final float y = -getHeight() / 2 + z * android.util.FloatMath.sin(Carousel.THETA);
 
+
     child.setItemX(x);
     child.setItemZ(z);
-    child.setItemY(y+diameter/6); //NV +diameter/6 added
+    child.setItemY(y+diameter/4);//NV +diameter/4 added
   }
 
   /**
@@ -684,7 +686,7 @@ public class Carousel
       w = child.getMeasuredWidth();
       h = child.getMeasuredHeight();
       d = getWidth();
-    }
+    }	
 
     child.setCurrentAngle(angleOffset);
 

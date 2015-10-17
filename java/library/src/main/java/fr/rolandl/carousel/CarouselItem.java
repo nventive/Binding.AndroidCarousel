@@ -13,8 +13,8 @@ import android.widget.FrameLayout;
 //Inspired by http://www.codeproject.com/Articles/146145/Android-D-Carousel
 public abstract class CarouselItem<T>
     extends FrameLayout
-    implements Comparable<CarouselItem<?>>
-{
+    implements Comparable<CarouselItem<?>> 
+	{
 
   private int index;
 
@@ -30,7 +30,7 @@ public abstract class CarouselItem<T>
 
   private Matrix matrix;
 
-  public CarouselItem(Context context, int layoutId)
+  public CarouselItem(Context context, int layoutId) 
   {
     super(context);
 
@@ -40,6 +40,20 @@ public abstract class CarouselItem<T>
     final LayoutInflater inflater = LayoutInflater.from(context);
     final View view = inflater.inflate(layoutId, this, true);
 
+    extractView(view);
+  }
+
+  public CarouselItem(Context context) 
+  {
+    super(context);
+
+    final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    this.setLayoutParams(params);
+  }
+
+  public void initView(View view)
+  {
+    this.addView(view);
     extractView(view);
   }
 

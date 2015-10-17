@@ -26,7 +26,7 @@ namespace App._3dCarousel
 			return (int)(item.ItemZ - this.ItemZ);
 		}
 
-		public MyItem(Context p0, View p1) : base(p0, p1)
+		public MyItem(Context p0) : base(p0)
 		{
 		}
 
