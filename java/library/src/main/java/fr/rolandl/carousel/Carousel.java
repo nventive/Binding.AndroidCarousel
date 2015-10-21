@@ -291,19 +291,17 @@ public class Carousel
     arr.recycle();
   }
 
-  private void Calculate3DPosition(CarouselItem<?> child, int diameter, float angleOffset)
+  private void Calculate3DPosition(CarouselItem<?> child, int childWidth, int childHeight, int diameter, float angleOffset, int carouselHeight)
   {
     // Convert degrees to radians
     angleOffset = angleOffset * (float) (Math.PI / 180.0f);
 
-    final float x = -(diameter / 2 * android.util.FloatMath.sin(angleOffset)) + diameter / 2 - child.getWidth() / 2;
+    final float x = -(diameter / 2 * android.util.FloatMath.sin(angleOffset)) + diameter / 2 - childWidth / 2;
     final float z = diameter / 2 * (1.0f - android.util.FloatMath.cos(angleOffset));
-    final float y = -getHeight() / 2 + z * android.util.FloatMath.sin(Carousel.THETA);
-
 
     child.setItemX(x);
     child.setItemZ(z);
-    child.setItemY(y+diameter/4);//NV +diameter/4 added
+    child.setItemY(-carouselHeight/2+childHeight / 2);
   }
 
   /**
@@ -673,19 +671,21 @@ public class Carousel
     int h;
     int w;
     int d;
+    int ch;
 
     if (isInLayout == true)
     {
       w = child.getMeasuredWidth();
       h = child.getMeasuredHeight();
       d = getMeasuredWidth();
-
+      ch = getMeasuredHeight();
     }
     else
     {
       w = child.getMeasuredWidth();
       h = child.getMeasuredHeight();
       d = getWidth();
+      ch = getHeight();
     }	
 
     child.setCurrentAngle(angleOffset);
@@ -702,7 +702,7 @@ public class Carousel
 
     child.layout(childLeft, childTop, w, h);
 
-    Calculate3DPosition(child, d, angleOffset);
+    Calculate3DPosition(child, w, h, d, angleOffset, ch);
   }
 
   /**
@@ -735,7 +735,7 @@ public class Carousel
       }
 
       child.setCurrentAngle(angle);
-      Calculate3DPosition(child, getWidth(), angle);
+      Calculate3DPosition(child, child.getWidth(), child.getHeight(), getWidth(), angle, getHeight());
     }
 
     // Clear unused views
