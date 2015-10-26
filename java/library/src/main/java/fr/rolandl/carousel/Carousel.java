@@ -297,7 +297,7 @@ public class Carousel
     angleOffset = angleOffset * (float) (Math.PI / 180.0f);
 
     final float x = -(diameter / 2 * android.util.FloatMath.sin(angleOffset)) + diameter / 2 - childWidth / 2;
-    final float z = diameter / 2 * (1.0f - android.util.FloatMath.cos(angleOffset));
+    final float z = diameter / 6 * (1.0f - android.util.FloatMath.cos(angleOffset));
 
     child.setItemX(x);
     child.setItemZ(z);
