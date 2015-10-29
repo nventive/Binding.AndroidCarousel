@@ -574,25 +574,28 @@ public class Carousel
 
     });
 
-    angle = arr.get(0).getCurrentAngle();
+    if(arr!=null && !arr.isEmpty())
+    {
+      angle = arr.get(0).getCurrentAngle();
 
-    // Make it minimum to rotate
-    if (angle > 180.0f)
-    {
-      angle = -(360.0f - angle);
-    }
+      // Make it minimum to rotate
+      if (angle > 180.0f)
+      {
+        angle = -(360.0f - angle);
+      }
 
-    // Start rotation if needed
-    if (angle != 0.0f)
-    {
-      flingRunnable.startUsingDistance(-angle);
-    }
-    else
-    {
-      // Set selected position
-      position = arr.get(0).getIndex();
-      setSelectedPositionInt(position);
-      onFinishedMovement();
+      // Start rotation if needed
+      if (angle != 0.0f)
+      {
+        flingRunnable.startUsingDistance(-angle);
+      }
+      else
+      {
+        // Set selected position
+        position = arr.get(0).getIndex();
+        setSelectedPositionInt(position);
+        onFinishedMovement();
+      }
     }
   }
 
