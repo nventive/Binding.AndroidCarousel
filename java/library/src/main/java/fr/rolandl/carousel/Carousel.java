@@ -537,7 +537,7 @@ public class Carousel
       return;
     }
 
-    // get nearest item to the 0 degrees angle
+	// get nearest item to the 0 degrees angle
     // Sort itmes and get nearest angle
     float angle;
     int position;
@@ -549,23 +549,23 @@ public class Carousel
       arr.add(((CarouselItem<?>) getAdapter().getView(i, null, null)));
     }
 
-    Collections.sort(arr, new Comparator<CarouselItem<?>>()
-    {
+    Collections.sort(arr, new Comparator<CarouselItem<?>>() 
+	{
 
       @Override
-      public int compare(CarouselItem<?> c1, CarouselItem<?> c2)
-      {
+      public int compare(CarouselItem<?> c1, CarouselItem<?> c2) 
+	  {
         int a1 = (int) c1.getCurrentAngle();
 
-        if (a1 > 180)
-        {
+        if (a1 > 180) 
+		{
           a1 = 360 - a1;
         }
 
         int a2 = (int) c2.getCurrentAngle();
 
-        if (a2 > 180)
-        {
+        if (a2 > 180) 
+		{
           a2 = 360 - a2;
         }
 
@@ -585,7 +585,8 @@ public class Carousel
       }
 
       // Start rotation if needed
-      if (angle != 0.0f)
+	  //Angle offset reduced
+      if (angle > 1.0f && angle < 359.0f)
       {
         flingRunnable.startUsingDistance(-angle);
       }
