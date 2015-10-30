@@ -11,7 +11,6 @@
 
 	<Target Name="Build">
 
-		<MakeDir Directories="$(MyOutputDir)" />
 
 		<MSBuild Properties="Configuration=$(Configuration);VisualStudioVersion=12.0"
 						 Projects="..\AndroidCarousel.sln" 
