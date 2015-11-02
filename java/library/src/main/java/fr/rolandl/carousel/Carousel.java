@@ -586,7 +586,7 @@ public class Carousel
 
       // Start rotation if needed
 	  //Angle offset reduced
-      if (angle > 1.0f && angle < 359.0f)
+      if ((angle > 1.0f || angle < -1.0f))
       {
         flingRunnable.startUsingDistance(-angle);
       }
