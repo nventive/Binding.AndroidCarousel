@@ -35,7 +35,7 @@
 			Namespaces="&lt;Namespace Prefix='x' Uri='http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd' /&gt;" />
 
 		<!-- Create the packages -->
-		<Exec Command="$(NuGetBin) pack AndroidCarousel.nuspec -OutputFileNamesWithoutVersion" />
+		<Exec Command="$(NuGetBin) pack -OutputFileNamesWithoutVersion AndroidCarousel.nuspec" />
 
 		<!-- Publish the new packages -->
 		<Exec Command="copy .\nventive.Binding.AndroidCarousel.nupkg $(Build_ArtifactStagingDirectory)" />
