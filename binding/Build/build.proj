@@ -44,7 +44,7 @@
 
 		<!-- Publish the new packages -->
 		<Exec Command="copy .\AndroidCarousel.$(PackageVersion).nupkg $(NuGetRepositoryPath)" Condition="'$(PublishNuget)'!=''" />
-		<Exec Command="copy .\AndroidCarousel.$(PackageVersion).nupkg $(MyOutputDir)" />
+		<Exec Command="copy .\AndroidCarousel.$(PackageVersion).nupkg $(Build_ArtifactStagingDirectory)" />
 
 	</Target>
 
