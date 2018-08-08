@@ -1,0 +1,38 @@
+resources:
+- repo: self
+  clean: true
+  lfs: true
+
+phases:
+- phase: VS_Latest
+  variables:
+    Configuration: Release
+    Platform: Any CPU
+
+  steps:
+  - task: gittools.gitversion.gitversion-task.GitVersion@3
+
+  - task: NuGetToolInstaller@0
+
+  - task: NuGetCommand@2
+    inputs:
+      solution: "binding/AndroidCarousel.sln"
+
+  - task: MSBuild@1
+    inputs:
+      solution: binding/Build/build.proj
+      msbuildLocationMethod: version
+      msbuildVersion: latest
+      msbuildArchitecture: x86
+      msbuildargs: ""
+      clean: false
+      maximumCpuCount: true
+      restoreNugetPackages: false
+      logProjectEvents: false
+      createLogFile: false
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: "Packages"
+      ArtifactType: "Container"
