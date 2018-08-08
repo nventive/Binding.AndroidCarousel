@@ -10,8 +10,6 @@
 	<remove-node path="/api/package[@name='fr.rolandl.carousel']/class[@name='CarouselSpinner.SavedState']/field[@name='CREATOR']" />
 	<remove-node path="/api/package[@name='fr.rolandl.carousel']/class[@name='CarouselSpinner']/method[@name='onSaveInstanceState' and count(parameter)=0]" />
 	<remove-node path="/api/package[@name='fr.rolandl.carousel']/class[@name='CarouselSpinner']/method[@name='onRestoreInstanceState' and count(parameter)=1 and parameter[1][@type='android.os.Parcelable']]" />
-	<remove-node path="/api/package[@name='fr.rolandl.carousel']/class[@name='CarouselSpinner']/method[@name='getAdapter' and count(parameter)=0]"/>
-	<remove-node path="/api/package[@name='fr.rolandl.carousel']/class[@name='CarouselSpinner']/method[@name='setAdapter' and count(parameter)=1 and parameter[1][@type='android.widget.SpinnerAdapter']]"/>
 		<!--<add-node path="/api/package[@name='fr.rolandl.carousel']/class[@name='CarouselSpinner']">
 			<method abstract="false" deprecated="not deprecated" final="false" name="getAdapter" native="true" return="android.widget.SpinnerAdapter" static="false" synchronized="false" visibility="public"/>
 		<method abstract="false" deprecated="not deprecated" final="false" name="setAdapter" native="true" return="void" static="false" synchronized="false" visibility="public">
