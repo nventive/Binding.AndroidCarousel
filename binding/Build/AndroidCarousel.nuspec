@@ -6,6 +6,7 @@
 		<title>Android 3D Carousel Xamarin Binding</title>
 		<authors>nventive</authors>
 		<owners />
+		<iconUrl>https://raw.githubusercontent.com/nventive/Binding.GeniusScanSDK/master/logo.jpg</iconUrl>
 		<projectUrl>https://github.com/nventive/Binding.AndroidCarousel</projectUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>A Xamarin.Android binding library for Android Carousel (https://github.com/ludovicroland/carousel-android)</description>
