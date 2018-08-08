@@ -3,10 +3,8 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
  
 	<PropertyGroup>
-		<Revision>$(TeamBuildNumber.Substring(1))</Revision>
 		<NuGetBin>..\packages\NuGet.CommandLine.2.8.6\tools\NuGet.exe</NuGetBin>
-		<NuGetRepositoryPath>\\main.nventive.local\Drops\Umbrella\Packages</NuGetRepositoryPath>
-		<PackageVersion>1.0.0.$(Revision)</PackageVersion>
+		<PackageVersion>$(GitVersion_NuGetVersion)</PackageVersion>
 	</PropertyGroup>
 
 	<Target Name="Build">
@@ -26,10 +24,6 @@
 		<PropertyGroup>
 			<NugetNamespace>http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd</NugetNamespace>
 		</PropertyGroup>
-
-		
-		<Message Condition="'$(PublishNuget)'!=''" Text="NuGet package publishing is ENABLED (Target: $(NuGetRepositoryPath))" />
-		<Message Condition="'$(PublishNuget)'==''" Text="NuGet package publishing is DISABLED (Target: $(NuGetRepositoryPath))" />
 		
 		<!-- Update the assembly versions -->
 		<Exec Command="attrib -r .\AndroidCarousel.nuspec" />
@@ -44,8 +38,7 @@
 		<Exec Command="$(NuGetBin) pack AndroidCarousel.nuspec" />
 
 		<!-- Publish the new packages -->
-		<Exec Command="copy .\AndroidCarousel.$(PackageVersion).nupkg $(NuGetRepositoryPath)" Condition="'$(PublishNuget)'!=''" />
-		<Exec Command="copy .\AndroidCarousel.$(PackageVersion).nupkg $(MyOutputDir)" />
+		<Exec Command="copy .\nventive.Binding.AndroidCarousel.$(PackageVersion).nupkg $(Build_ArtifactStagingDirectory)" />
 
 	</Target>
 
